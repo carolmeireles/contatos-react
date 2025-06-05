@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import vars from '../../styles/vars'
 
 export const Form = styled.form`
   display: flex;
@@ -18,8 +19,8 @@ export const Form = styled.form`
   }
 
   button {
-    background-color: #009432;
-    color: #ffffff;
+    background-color: ${vars.verde};
+    color: #fff;
     font-size: 18px;
     font-weight: bold;
     border: none;
