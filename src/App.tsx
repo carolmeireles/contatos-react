@@ -1,6 +1,6 @@
 import FormCadastro from "./containers/FormCadastro"
 import TabelaContatos from "./containers/TabelaContatos"
-import EstiloGlobal, { Container } from "./styles"
+import EstiloGlobal, { Container, Header } from "./styles"
 
 function App() {
 
@@ -8,9 +8,9 @@ function App() {
     <>
       <EstiloGlobal />
       <Container>
-        <header>
+        <Header>
           <h1>📒 Agenda de Contatos</h1>
-        </header>
+        </Header>
         <TabelaContatos />
         <FormCadastro />
       </Container>

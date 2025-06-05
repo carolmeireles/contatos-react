@@ -20,4 +20,15 @@ export const Container = styled.div`
   margin: 0 auto;
 `
 
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+`
+
 export default EstiloGlobal

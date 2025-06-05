@@ -1,8 +1,9 @@
 import Contato from "../../components/Contato"
+import { Tabela } from "./styles"
 
 const TabelaContatos = () => {
   return (
-    <table>
+    <Tabela>
       <thead>
         <tr>
           <th>Nome</th>
@@ -14,7 +15,7 @@ const TabelaContatos = () => {
       <tbody>
         <Contato />
       </tbody>
-    </table>
+    </Tabela>
   )
 }
 
