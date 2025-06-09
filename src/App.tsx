@@ -1,11 +1,20 @@
+import { Provider } from "react-redux"
 import FormCadastro from "./containers/FormCadastro"
 import TabelaContatos from "./containers/TabelaContatos"
 import EstiloGlobal, { Container, Header } from "./styles"
+import { store } from './store'
+
+export type Contato = {
+  id: number
+  nome: string
+  email: string
+  telefone: number
+}
 
 function App() {
 
   return (
-    <>
+    <Provider store={store}>
       <EstiloGlobal />
       <Container>
         <Header>
@@ -14,7 +23,7 @@ function App() {
         <TabelaContatos />
         <FormCadastro />
       </Container>
-    </>
+    </Provider>
   )
 }
 
