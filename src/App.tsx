@@ -8,7 +8,7 @@ export type Contato = {
   id: number
   nome: string
   email: string
-  telefone: number
+  telefone: string
 }
 
 function App() {

@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux"
 import Contato from "../../components/Contato"
 import { Tabela } from "./styles"
+import type { RootReducer } from "../../store"
 
 const TabelaContatos = () => {
+  const { itens } = useSelector((state: RootReducer) => state.contatos)
+
   return (
     <Tabela>
       <thead>
