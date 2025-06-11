@@ -11,13 +11,22 @@ const TabelaContatos = () => {
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Telefone</th>
           <th>E-mail</th>
+          <th>Telefone</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <Contato />
+          {itens.map((c) => (
+            <tr key={c.nome}>
+              <Contato
+                id={c.id}
+                nome={c.nome}
+                email={c.email}
+                telefone={c.telefone}
+              />
+            </tr>
+          ))}
       </tbody>
     </Tabela>
   )

@@ -4,13 +4,6 @@ import TabelaContatos from "./containers/TabelaContatos"
 import EstiloGlobal, { Container, Header } from "./styles"
 import { store } from './store'
 
-export type Contato = {
-  id: number
-  nome: string
-  email: string
-  telefone: string
-}
-
 function App() {
 
   return (

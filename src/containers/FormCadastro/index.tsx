@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { useState, type FormEvent } from 'react'
+import { useRef, useState, type FormEvent } from 'react'
 import { Form } from './styles'
 import { cadastrar } from '../../store/reducers/contatos'
 
@@ -9,6 +9,8 @@ const FormCadastro = () => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
+
+  const formRef = useRef(null);
 
   const cadastrarContato = (evento: FormEvent) => {
     evento.preventDefault()
@@ -20,10 +22,11 @@ const FormCadastro = () => {
         telefone
       })
     )
+    formRef.current.reset();
   }
 
   return (
-    <Form onSubmit={cadastrarContato}>
+    <Form onSubmit={cadastrarContato} ref={formRef}>
       <input
         value={nome} onChange={(evento) => setNome(evento.target.value)}
         type="text" id="name" placeholder="Nome completo" required
@@ -33,8 +36,8 @@ const FormCadastro = () => {
         type="email" id="name" placeholder="Endereço de e-mail" required
       />
       <input
-        value={telefone} onChange={(evento) => setTelefone(evento.target.value)}
-        type="tel" id="phone" placeholder="Número de telefone" required
+        value={telefone} onChange={((evento) => setTelefone(evento.target.value))}
+        type="tel" id="phone" placeholder="(99) 99999-9999" required
       />
       <button type="submit">Cadastrar</button>
     </Form>

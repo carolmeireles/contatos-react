@@ -1,6 +1,6 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import type { Contato } from "../../App";
+import Contato from "../../models/Contato";
 
 type ContatosState = {
   itens: Contato[]
