@@ -9,3 +9,9 @@ export const Opcoes = styled.a`
   padding: 0 8px;
   text-decoration: underline;
 `
+
+export const Campo = styled.input`
+  border: none;
+  font-size: 16px;
+  text-align: center;
+`

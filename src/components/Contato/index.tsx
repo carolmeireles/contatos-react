@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-import { Opcoes } from "./styles"
+import { Opcoes, Campo } from "./styles"
 import ContatoClass from '../../models/Contato'
 import { editar, remover } from "../../store/reducers/contatos"
 
@@ -45,9 +45,21 @@ const Contato = ({
 
   return (
     <>
-      <td>{nome}</td>
-      <td>{email}</td>
-      <td>{telefone}</td>
+      <td>
+        <Campo type="text" value={nome} disabled={!editando}
+          onChange={(evento) => setNome(evento.target.value)}
+        />
+      </td>
+      <td>
+        <Campo type="text" value={email} disabled={!editando}
+          onChange={(evento) => setEmail(evento.target.value)}
+        />
+      </td>
+      <td>
+        <Campo type="text" value={telefone} disabled={!editando}
+          onChange={(evento) => setTelefone(evento.target.value)}
+        />
+      </td>
       <td>
         {editando ? (
           <>
