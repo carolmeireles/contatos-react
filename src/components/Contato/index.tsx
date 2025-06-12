@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { Opcoes } from "./styles"
 import ContatoClass from '../../models/Contato'
+import { editar, remover } from "../../store/reducers/contatos"
 
 type Props = ContatoClass
 
@@ -38,8 +39,8 @@ const Contato = ({
   function cancelarEdicao() {
     setEditando(false)
     setNome(nomeOriginal)
-    setNome(emailOriginal)
-    setNome(telOriginal)
+    setEmail(emailOriginal)
+    setTelefone(telOriginal)
   }
 
   return (
@@ -48,8 +49,37 @@ const Contato = ({
       <td>{email}</td>
       <td>{telefone}</td>
       <td>
-        <Opcoes>Editar</Opcoes>
-        <Opcoes>Remover</Opcoes>
+        {editando ? (
+          <>
+            <Opcoes
+              onClick={() => {
+                dispatch(
+                  editar({
+                    id,
+                    nome,
+                    email,
+                    telefone
+                  })
+                )
+                setEditando(false)
+              }}
+            >
+              Salvar
+            </Opcoes>
+            <Opcoes
+              onClick={() => {
+                cancelarEdicao()
+              }}
+            >
+              Cancelar
+            </Opcoes>
+          </>
+        ) : (
+          <>
+            <Opcoes onClick={() => setEditando(true)}>Editar</Opcoes>
+            <Opcoes onClick={() => dispatch(remover(id))}>Remover</Opcoes>
+          </>
+        )}
       </td>
     </>
   )
