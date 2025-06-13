@@ -20,6 +20,9 @@ const FormCadastro = () => {
         telefone
       })
     )
+    setNome('')
+    setEmail('')
+    setTelefone('')
   }
 
   return (
@@ -33,7 +36,8 @@ const FormCadastro = () => {
         type="email" id="name" placeholder="Endereço de e-mail" required
       />
       <input
-        value={telefone} onChange={((evento) => setTelefone(evento.target.value))}
+        value={telefone} onChange={(({ target }) =>
+        setTelefone(target.value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3')))}
         type="tel" id="phone" placeholder="(99) 99999-9999" required
       />
       <button type="submit">Cadastrar</button>
